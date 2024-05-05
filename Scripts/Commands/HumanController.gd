@@ -6,7 +6,7 @@ var state : PlayerState = null
 
 ## Gets the input direction of the player
 func get_input_direction() -> float:
-    self.input_dir : float = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+    self.input_dir = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
     return self.input_dir
 
 func _process(_delta):
