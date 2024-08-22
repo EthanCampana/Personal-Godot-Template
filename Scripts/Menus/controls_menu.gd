@@ -1,4 +1,5 @@
-extends Control 
+extends Menu 
+class_name ControlsMenu
 
 
 @onready var input_button : PackedScene = preload("res://Scenes/UI/input_button.tscn")
