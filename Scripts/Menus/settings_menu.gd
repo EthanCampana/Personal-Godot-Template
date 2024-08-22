@@ -1,5 +1,5 @@
 class_name SettingsMenu
-extends CanvasLayer
+extends Menu 
 
 # TODO: Determine how opening the setting menu will pause the game
 
@@ -11,7 +11,6 @@ extends CanvasLayer
 
 
 
-signal settings_menu_closed()
 
 const WINDOW_MODE_OPTIONS : Array[String] = [
 	"Window Mode",
@@ -32,7 +31,7 @@ func _ready():
 
 ## Closes the settings menu
 func close_settings():
-	emit_signal("settings_menu_closed")
+	emit_signal("menu_closed")
 	queue_free()
 
 ## Saves the settings data

@@ -7,3 +7,6 @@ TODO:
     - Scene manager should talk to the transition hub
 """
 # ? Scene manager should handle the saving all and load all ????
+
+@onready var TransitionManager : Transitions = preload("res://Scripts/TransitionManager.gd").new()
+

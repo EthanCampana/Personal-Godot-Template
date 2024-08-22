@@ -7,7 +7,6 @@ extends CanvasLayer
 @onready var anim : AnimationPlayer = $AnimationPlayer
 var cur_animation : String
 
-
 signal transition_in_finished
 
 

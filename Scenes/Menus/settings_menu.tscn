@@ -2,10 +2,15 @@
 
 [ext_resource type="Script" path="res://Scripts/Menus/settings_menu.gd" id="1_drivg"]
 
-[node name="SettingsMenu" type="CanvasLayer"]
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("1_drivg")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
