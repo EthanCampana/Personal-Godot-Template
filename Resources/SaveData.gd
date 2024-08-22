@@ -7,11 +7,11 @@ const PATH: String = "user://savegame.tres"
 func save() -> void:
     ResourceSaver.save(self,PATH)
 
-static func load_or_create() -> SettingsData:
-    var res:SettingsData
+static func load_or_create() -> SaveData:
+    var res :  SaveData
     if FileAccess.file_exists(PATH):
-        res = load(PATH) as SettingsData
+        res = load(PATH) as SaveData 
     else:
-        res = SettingsData.new()
+        res = SaveData.new()
         res.save()
     return res

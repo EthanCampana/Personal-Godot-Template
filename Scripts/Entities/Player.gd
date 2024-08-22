@@ -21,7 +21,7 @@ var _controller : PlayerController
 var canJump = true
 @export var acceleration: float = 1000
 @export var speed : float = 100
-var state : PlayerState = null
+@export var state : PlayerState = null
 
 func get_state()-> PlayerState:
 	return state
@@ -50,7 +50,7 @@ func handle_state(delta:float):
 	# This is  work around that will allow us to match on the state by class
 	# Generally this looks cleanier than a bunch of if statements.
 	match self.state:
-		_ when self.state is Move or self.state is Air:
+		_ when self.state is Move or self.state is Air or self.state is Idle :
 			handle_movement()
 	move_and_slide()
 
@@ -59,6 +59,7 @@ func set_controller(controller: PlayerController)-> void:
 	for child in _controller_container.get_children():
 		child.queue_free()
 	_controller = controller
+	_controller_container.add_child(controller)
 
 # Ready the controller
 func _ready():

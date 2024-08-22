@@ -5,8 +5,6 @@ extends Control
 """
 TODO:
 	- Hookup Buttons to do there respective tasks
-	- Exit button should close the application
-	- Settings button should open the settings menu
 	- Play buttons should start the main scene or whatever scene is the SceneManager says
 """
 
@@ -34,7 +32,7 @@ func _on_settings_pressed():
 	await TransitionManager.transition_in_finished
 	TransitionManager.transition_out()
 	get_tree().root.add_child(menu)
-	await menu.settings_menu_closed
+	await menu.menu_closed
 	self.visible = true
 
 
