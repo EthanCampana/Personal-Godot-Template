@@ -127,6 +127,7 @@ func load_scenes_into_cache(scene_to_load:String,load_into:Node=null,transition:
 		push_warning("Scene Manager is loading something already")
 		push_warning("Add Request to queue")
 		_cache_queue.append({"scene_path":scene_to_load,"load_into":load_into,"transition":transition})
+		return
 	_cache_queue.append({"scene_path":scene_to_load,"load_into":load_into,"transition":transition})
 	_load_scenes_from_queue_to_cache()
 
