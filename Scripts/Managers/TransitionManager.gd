@@ -7,7 +7,7 @@ extends CanvasLayer
 @onready var anim : AnimationPlayer = $AnimationPlayer
 var cur_animation : String
 
-signal transition_in_finished
+signal transition_finished
 
 
 
@@ -19,7 +19,7 @@ func _ready():
 
 ## Pass in a transition name to play in between scenes
 ## Params : transition_name : String [br]
-## Transition Types ["slideIn","fadeIn]  Default : fadeIn
+## Transition Types ["slideIn","fadeIn"]  Default : ["fadeIn"]
 func transition(transition_name : String = "fadeIn"):
 	match transition_name:
 		"fadeIn":
@@ -27,19 +27,20 @@ func transition(transition_name : String = "fadeIn"):
 		"slideIn":
 			l_slide.visible = true
 			r_slide.visible = true
-	cur_animation = transition_name
+	self.cur_animation = transition_name
 	anim.play(self.cur_animation)
 	await anim.animation_finished
-	emit_signal("transition_in_finished")
+	emit_signal("transition_finished")
 
-func transition_out():
+func transition_out(): 
 	anim.play_backwards(self.cur_animation)
 	await anim.animation_finished
-	match cur_animation:
+	match self.cur_animation:
 		"fadeIn":
 			fade.visible = false 
 		"slideIn":
 			l_slide.visible = false 
 			r_slide.visible = false 
+	emit_signal("transition_finished")
 
 

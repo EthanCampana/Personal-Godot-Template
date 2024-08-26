@@ -1,6 +1,6 @@
 class_name SaveData extends Resource
 
-@export var main_scene : String = ""
+@export var main_scene : String = "res://Scenes/blank.tscn"
 
 const PATH: String = "user://savegame.tres"
 

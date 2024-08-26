@@ -1,7 +1,6 @@
 extends Menu 
 class_name ControlsMenu
 
-
 @onready var input_button : PackedScene = preload("res://Scenes/UI/input_button.tscn")
 @onready var action_list :  = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList
 
@@ -52,7 +51,7 @@ func _create_action_list():
 		var events = InputMap.action_get_events(action)
 
 		if events.size() > 0:
-			input_label.text = _update_action_list(button, events[0]) 
+			_update_action_list(button, events[0]) 
 		else:
 			input_label.text = "None"
 		
@@ -78,7 +77,7 @@ func _create_default_action_list():
 		var events = InputMap.action_get_events(action)
 
 		if events.size() > 0:
-			input_label.text = _update_action_list(button, events[0]) 
+			_update_action_list(button, events[0]) 
 		else:
 			input_label.text = "None"
 		action_list.add_child(button)
@@ -111,6 +110,11 @@ func _input(event):
 			remapping_button = null
 			controlData.save()
 			accept_event()
+	if Input.is_action_pressed("ui_cancel"):
+		controlData.save()
+		menu_closed.emit()
+		self.queue_free()
+
 
 # Update the action list with the new input event
 func _update_action_list(button: Button, event: InputEventWithModifiers):
