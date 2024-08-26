@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dksppx7buhvwc"]
 
-[ext_resource type="Script" path="res://Scripts/TransitionManager.gd" id="1_wol5r"]
+[ext_resource type="Script" path="res://Scripts/Managers/TransitionManager.gd" id="1_l2l1e"]
 
 [sub_resource type="Animation" id="Animation_yj7tm"]
 length = 0.001
@@ -230,9 +230,10 @@ _data = {
 }
 
 [node name="TransitionsManager" type="CanvasLayer"]
-script = ExtResource("1_wol5r")
+script = ExtResource("1_l2l1e")
 
 [node name="Fade" type="ColorRect" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
